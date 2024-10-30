@@ -1,6 +1,6 @@
 <?php
 
-class HomeModel {
+class Pessoas {
 
     // Call to the database
     public function getPessoas($sqlParameters = 1) {

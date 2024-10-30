@@ -5,7 +5,7 @@ class Home extends Controller {
     public function index($param1= '', $param2= '', $param3= '') {
         
         // Initialize Home model
-        $home = $this->model('HomeModel');
+        $home = $this->model('Pessoas');
 
         // Call function from the model
         $homeData = $home->getPessoas();
