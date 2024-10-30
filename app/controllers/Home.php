@@ -5,12 +5,12 @@ class Home extends Controller {
     public function index($param1= '', $param2= '', $param3= '') {
         
         // Initialize Home model
-        $home = $this->model('Pessoas');
+        $pessoas = $this->model('Pessoas');
 
         // Call function from the model
-        $homeData = $home->getPessoas();
+        $pessoasData = $pessoas->getPessoa();
 
-        $this->view('home/index', ['pessoas' => $homeData, 'parameters' => [$param1, $param2, $param3]]);
+        $this->view('home/index', ['pessoas' => $pessoasData, 'parameters' => [$param1, $param2, $param3]]);
     }
 }
 
