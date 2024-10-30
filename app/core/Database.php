@@ -9,11 +9,11 @@ class Database {
     private static $pw;
 
     private static function connect() {
-        self::$host = getenv('DB_HOST');
-        self::$port = getenv('DB_PORT');
-        self::$db   = getenv('DB_DATABASE');
-        self::$user = getenv('DB_USER');
-        self::$pw   = getenv('DB_PASSWORD');
+        self::$host = 'localhost';
+        self::$port = '3306';
+        self::$db   = 'test';
+        self::$user = 'root';
+        self::$pw   = '';
         
         $pdo = new \PDO('mysql:host=' . self::$host . ';dbname=' . self::$db .';charset=utf8', self::$user, self::$pw);
         $pdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
