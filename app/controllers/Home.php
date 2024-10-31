@@ -10,7 +10,7 @@ class Home extends Controller {
         // Call function from the model
         $pessoasData = $pessoas->getPessoa();
 
-        $this->view('home/index', ['pessoas' => $pessoasData, 'parameters' => [$param1, $param2, $param3]]);
+        $this->view('cadastro/index', ['pessoas' => $pessoasData, 'parameters' => [$param1, $param2, $param3]]);
     }
 }
 

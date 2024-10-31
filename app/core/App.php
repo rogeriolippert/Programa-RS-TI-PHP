@@ -2,13 +2,16 @@
 
 class App
 {
-    protected $controller = 'Cadastro';
+    protected $controller = 'Home';
     protected $method = 'index';
     protected $params = [];
 
     public function __construct() {
         // Parse url into readable string
         $url = $this->parseUrl();
+        // /public/index.php?url=Cadastro/index
+        // Cadastro => Controller
+        // index => Method
 
         // Get controller
         if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . '.php')) {

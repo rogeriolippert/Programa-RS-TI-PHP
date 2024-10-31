@@ -1,6 +1,17 @@
 <?php
 
 class Pessoas {
+    public $nome;
+    public $sobrenome;
+    public $email;
+    public $telefone;
+    public $cep;
+    public $rua;
+    public $numero;
+    public $bairro;
+    public $complemento;
+    public $estado;
+    public $cidade;
 
     // Obtém uma pessoa específica ou todas as pessoas
     // do banco de dados.

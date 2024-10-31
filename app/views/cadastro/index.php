@@ -25,7 +25,8 @@
             <div class="h1 text-center">
                 Cadastre-se
             </div>
-            <form action="index.php" method="post">
+            <!-- Carrega a Controller "Cadastro" e chama a função PHP "novoCadastro()" dentro dela -->
+            <form action="/public/index.php?url=Cadastro/novoCadastro" method="post">
                 <div class="row mt-4">
                     <div class="col-6">
                         <input type="text" class="form-control">
