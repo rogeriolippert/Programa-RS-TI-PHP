@@ -9,9 +9,10 @@ class App
     public function __construct() {
         // Parse url into readable string
         $url = $this->parseUrl();
-        // /public/index.php?url=Cadastro/index
+        // /public/index.php?url=Cidades/getCidades/1
         // Cadastro => Controller
         // index => Method
+        // 1 => Param1
 
         // Get controller
         if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . '.php')) {
