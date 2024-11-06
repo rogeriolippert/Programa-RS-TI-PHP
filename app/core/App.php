@@ -43,8 +43,8 @@ class App
 
     // Parse url  into useable array
     private function parseUrl() {
-        if (isset($_GET['url']))
-            return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+        if (isset($_SERVER['PATH_INFO']))
+            return explode('/', filter_var(trim($_SERVER['PATH_INFO'], '/'), FILTER_SANITIZE_URL));
     }
 }
 

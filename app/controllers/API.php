@@ -11,7 +11,7 @@ Class API extends Controller {
     // getCidades => Parâmetro 2
     // 23 => Parâmetro 3 ($id_uf)
 
-    public function JSON($controller, $method, $params = null) {
+    public function JSON($controller, $method, ...$params) {
         die(var_dump($controller, $method, $params));
     }
 }
