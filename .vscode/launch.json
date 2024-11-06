@@ -10,7 +10,7 @@
                 "-S",
                 "localhost:8000",
                 "-t",
-                "public"
+                "/public"
             ],
             "serverReadyAction": {
                 "action": "openExternally"
