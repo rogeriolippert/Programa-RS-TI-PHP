@@ -1,6 +1,6 @@
 <?php
 
-Class Cidades extends Controller {
+Class Cidade extends Controller {
     public function getCidades($id_uf) {
         $cidades = $this->model("Cidades");
         $cidades->uf = $id_uf;
