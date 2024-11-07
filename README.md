@@ -44,7 +44,7 @@ Instale a extensão "PHP" da DEVSENSE disponível na loja de extensões do Visua
 
 Edite o arquivo ``.vscode/launch.json`` do projeto e adicione a seção de configuração "**Launch built-in server and Debug**" as variáveis de ambiente:
 
-````
+```
 "env": {
     "DB_HOST": "localhost",
     "DB_PORT": "3306",
