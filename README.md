@@ -32,8 +32,24 @@ make
 make test
 make install
 sed -i 's/;extension=pdo_mysql/extension=pdo_mysql/' /opt/php/$VERSION/ini/php.ini
-
 php -i | grep drivers
+```
+
+### Instalação do PHP-intl
+
+```
+cd
+VERSION=$(php -r 'echo phpversion();')
+wget https://www.php.net/distributions/php-$VERSION.tar.gz
+tar xf php-$VERSION.tar.gz 
+cd php-$VERSION/ext/intl
+phpize
+./configure
+make
+make test
+make install
+cp ./.libs/intl.so /opt/php/$VERSION/lib/php/extensions/no-debug-non-zts-20200930/intl.so
+sed -i 's/;extension=intl/extension=intl/' /opt/php/$VERSION/ini/php.ini
 ```
 
 ## VSCode (Desktop)
