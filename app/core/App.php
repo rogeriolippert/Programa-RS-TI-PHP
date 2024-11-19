@@ -9,14 +9,14 @@ class App
     public function __construct() {
         // Parse url into readable string
         $url = $this->parseUrl();
-        // /public/index.php?url=Cidades/getCidades/1
-        // Cadastro => Controller
-        // index => Method
-        // 1 => Param1
+        // /public/index.php?url=Cidade/getCidades/23
+        // Cidade => Controller
+        // getCidades => Method
+        // 23 => Param1
 
         // Get controller
-        if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . '.php')) {
-            $this->controller = $url[0];
+        if (isset($url[0]) && file_exists('../app/controllers/' . ucfirst($url[0]) . '.php')) {
+            $this->controller = ucfirst($url[0]);
             unset($url[0]);
         }
 

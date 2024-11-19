@@ -1,7 +1,3 @@
-<?php
-// die(var_dump($data));
-?>
-
 <!DOCTYPE html>
 <html lang="pt" data-bs-theme="dark">
 <head>
