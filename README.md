@@ -46,9 +46,7 @@ cd php-$VERSION/ext/intl
 phpize
 ./configure
 make
-make test
 make install
-cp ./.libs/intl.so /opt/php/$VERSION/lib/php/extensions/no-debug-non-zts-20200930/intl.so
 sed -i 's/;extension=intl/extension=intl/' /opt/php/$VERSION/ini/php.ini
 ```
 
@@ -84,6 +82,14 @@ SetEnv DB_PORT "3306"
 SetEnv DB_USER "root"
 SetEnv DB_PASSWORD ""
 ```
+
+## XAMPP
+
+### Instalação do PHP-intl
+
+No XAMPP, clique no botão "**Config**" em "Apache" e selecione "**php.ini**".
+
+Remova ";" (comentário) na frente da linha "**;extension=intl**".
 
 ## Referências 
 

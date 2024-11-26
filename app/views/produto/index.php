@@ -66,7 +66,7 @@ var_dump($data);
     <!-- Conteudo principal -->
     <div class="product-details-container">
         <div class="product-image">
-            <img src="/assets/home/carousel de produtos/banner-1/banner-1.jpg" alt="Casaco Jeans Com Cinto">
+            <img src="<?php echo $data['produto']->fotos[0]; ?>" alt="Casaco Jeans Com Cinto">
             <i class="fas fa-search-plus zoom-icon"></i>
         </div>
         <div class="product-info">
@@ -82,8 +82,8 @@ var_dump($data);
                     <option value="G">G</option>
                 </select>
             </div>
-            <p class="price">R$ 1.223,04 à vista no Pix</p>
-            <p class="installment">R$ 1.248,00 em até 6x R$ 208,00 no cartão de crédito</p>
+            <p class="price"><?php echo $data['produto']->preco_desconto; ?> à vista no Pix</p>
+            <p class="installment"><?php echo $data['produto']->preco; ?> em até 6x <?php echo $data['produto']->preco_parcelado; ?> no cartão de crédito</p>
             <button class="buy-now">COMPRAR AGORA</button>
             <button class="add-to-cart">
                 <i class="fas fa-shopping-bag"></i> Adicionar à sacola
@@ -98,7 +98,7 @@ var_dump($data);
                     <button type="button" class="zip-code-button">OK</button>
                 </div>
             </div>
-            <p class="composition"><strong>Composição:</strong> CORPO 100% ALGODÃO FORRO, 52% POLIÉSTER 48%</p>
+            <p class="composition"><?php echo $data['produto']->descricao; ?></p>
         </div>
     </div>
 
@@ -106,8 +106,12 @@ var_dump($data);
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <div class="modal-content-container">
-            <img class="modal-content active" src="/assets/home/carousel de produtos/banner-1/banner-1.jpg">
-            <img class="modal-content" src="/assets/home/carousel de produtos/banner-1/banner-2.jpg">
+            <?php
+                $fotos = $data['produto']->fotos;
+                foreach($fotos as $foto) {
+                    echo '<img class="modal-content" src="' . $foto . '">';
+                }
+            ?>
         </div>
         <div id="caption"></div>
     
