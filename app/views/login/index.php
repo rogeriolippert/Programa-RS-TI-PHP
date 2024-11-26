@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/home-whats-footer.css">
-    <link rel="stylesheet" href="css/pagina-de-login.css">
-    <link rel="stylesheet" href="css/pesquisa-navbar.css">
+    <link rel="stylesheet" href="/css/home-whats-footer.css">
+    <link rel="stylesheet" href="/css/pagina-de-login.css">
+    <link rel="stylesheet" href="/css/pesquisa-navbar.css">
     <title>Elegance Moda</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 
     <!-- Logo -->
     <div id="logo-container" class="logo-container">
-        <img src="assets/home/logo.png" alt="Logo da empresa">
+        <img src="/assets/home/logo.png" alt="Logo da empresa">
     </div>
 
     <!-- Navbar -->
@@ -50,12 +50,12 @@
         <form id="custom-login-form">
             <div class="custom-input-group">
                 <label for="custom-username">E-mail</label>
-                <input type="email" id="custom-username" name="custom-username" placeholder="Enter your email">
+                <input type="email" id="custom-username" name="custom-username" placeholder="Digite seu e-mail">
                 <span id="custom-email-error" class="custom-error-message">E-mail inválido</span>
             </div>
             <div class="custom-input-group">
                 <label for="custom-password">Senha</label>
-                <input type="password" id="custom-password" name="custom-password" placeholder="Enter your password">
+                <input type="password" id="custom-password" name="custom-password" placeholder="Digite sua senha">
             </div>
             <button type="submit" class="custom-login-btn">Login</button>
             <!-- <div class="custom-social-login">
@@ -122,11 +122,11 @@
         </div>
     </div>
 
-    <script src="js/cupom-home.js"></script>
-    <script src="js/pesquisa-navbar.js"></script>
-    <script src="js/pagina-de-login.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="js/menu-sanduiche-home.js"></script>
-    <script src="js/logo-navbar.js"></script>
+    <script src="/js/cupom-home.js"></script>
+    <script src="/js/pesquisa-navbar.js"></script>
+    <script src="/js/pagina-de-login.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/menu-sanduiche-home.js"></script>
+    <script src="/js/logo-navbar.js"></script>
 </body>
 </html>
