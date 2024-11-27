@@ -1,19 +1,19 @@
 <?php
 
+require_once 'Login.php';
+
 class Dashboard extends Controller {
     public function index() {
-        // Valida se o usuário está autenticado
-        if(!isset($_COOKIE['login'])) {
-            // Cookie "login" não está definido
-            // (ou seja, o usuário não está autenticado)
-            // Chama a função de Login:
-            $this->Login();
-        }
-    }
+        // Instancia a Controller de Login (controllers/Login.php):
+        $login = new Login();
 
-    public function Login() {
-        // A função de Login() é responsável por exibir
-        // o formulário de Login para o usuário
-        $this->view('login/index');
+        // Valida se o usuário está autenticado
+        if(!$login->estaLogado()) {
+            // Se o usuário não estiver autenticado
+        
+            // Carrega a função index() da Controller de Login
+            // que exibe o formulário de login:
+            $login->index();
+        }
     }
 }
