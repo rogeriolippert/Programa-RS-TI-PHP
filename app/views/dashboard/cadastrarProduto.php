@@ -1,57 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elegance Moda</title>
+    <title>Cadastro de Produtos</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
         label {
+            margin-top: 10px;
             font-weight: bold;
+        }
+        input, textarea, button {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="file"] {
+            padding: 0;
+        }
+        button {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
-
 <body>
-    <h1>Cadastro de produtos</h1>
-    <form action="/Produtos/addProduto" method="post" enctype="multipart/form-data">
-        <table>
-            <tr>
-                <td><label for="nome">Nome</label></td>
-                <td><input type="text" id="nome" name="nome"></td>
-            </tr>
-            <tr>
-                <td><label for="cor">Cor</label></td>
-                <td><input type="text" id="cor" name="cor"></td>
-            </tr>
-            <tr>
-                <td><label for="preco">Preço</label></td>
-                <td><input type="text" id="preco" name="preco"></td>
-            </tr>
-            <tr>
-                <td><label for="descricao">Descrição</label></td>
-                <td><textarea id="descricao" name="descricao"></textarea></td>
-            </tr>
-            <tr>
-                <td><label for="foto-frente">Foto Frente</label></td>
-                <td>
-                    <input id="foto-frente" name="fotos[]" type="file">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="foto-tras">Foto Trás</label></td>
-                <td><input id="foto-tras" name="fotos[]" type="file"></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><input type="submit"></td>
-                <td></td>
-            </tr>
-        </table>
-    </form>
-</body>
+    <div class="container">
+        <h1>Cadastro de Produtos</h1>
+        <form action="/cadastrar-produto" method="POST" enctype="multipart/form-data">
+            <!-- Nome do Produto -->
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>
 
+            <!-- Cor do Produto -->
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" name="cor" placeholder="Ex: Preto, Natural, Vermelho" required>
+
+            <!-- Preço -->
+            <label for="preco">Preço (R$):</label>
+            <input type="number" id="preco" name="preco" step="0.01" placeholder="Ex: 599.99" required>
+
+            <!-- Descrição -->
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o produto..." required></textarea>
+
+            <!-- Fotos -->
+            <label for="fotos">Fotos do Produto:</label>
+            <input type="file" id="fotos" name="fotos" accept="image/*" multiple required>
+
+            <!-- Botão de envio -->
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+</body>
 </html>
