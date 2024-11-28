@@ -21,4 +21,8 @@ class Dashboard extends Controller {
             $login->index();
         }
     }
+
+    public function cadastrarProduto() {
+        $this->view("dashboard/cadastrarProduto");
+    }
 }
