@@ -5,7 +5,7 @@ class Cidades {
     public $uf;
 
     public function getCidades() {
-        $sqlQuery = "SELECT id,nome FROM cidade WHERE uf = `?`";
+        $sqlQuery = "SELECT id,nome FROM cidade WHERE uf = ?";
 
         try {
             return Database::query($sqlQuery, [$this->uf]);
