@@ -34,7 +34,7 @@ class Pessoas {
                 (`cpf`, `nome`, `sobrenome`, `data_nascimento`, `sexo`, `telefone`, `email`, \
                 `cep`, `numero`, `bairro`, `cidade`, `rua`, `complemento`, `estado`) \
                 VALUES \
-                ('?', '?', '?', '?', '?', '?', '?', \
+                (`?`, '?', '?', '?', '?', '?', '?', \
                 '?', '?', '?', '?', '?', '?', '?');";
 
         try {
