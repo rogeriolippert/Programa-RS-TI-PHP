@@ -3,12 +3,17 @@
 require_once 'Login.php';
 
 class Dashboard extends Controller {
-    public function index() {
-        // Instancia a Controller de Login (controllers/Login.php):
-        $login = new Login();
 
+    // Instancia a Controller de Login (controllers/Login.php):
+    private $login;
+
+    public function __construct() {
+        $this->login = new Login();
+    }
+
+    public function index() {
         // Valida se o usuário está autenticado
-        if($login->estaLogado()) {
+        if($this->login->estaLogado()) {
             // Se o usuário estiver autenticado
 
             // Direciona ele para a Dashboard do site
@@ -18,11 +23,19 @@ class Dashboard extends Controller {
         
             // Carrega a função index() da Controller de Login
             // que exibe o formulário de login:
-            $login->index();
+            $this->login->index();
         }
     }
 
     public function cadastrarProduto() {
-        $this->view("dashboard/cadastrarProduto");
+        if($this->login->estaLogado()) {
+            // Caso o usuário esteja logado
+            // Exibe a tela de cadastro de produtos
+            $this->view("dashboard/cadastrarProduto");
+        } else {
+            // Caso contrário
+            // Exibe a tela de login
+            $this->login->index();
+        }
     }
 }

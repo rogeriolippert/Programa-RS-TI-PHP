@@ -31,7 +31,7 @@
             margin-top: 10px;
             font-weight: bold;
         }
-        input, textarea, button {
+        input, select, textarea, button {
             margin-top: 5px;
             padding: 10px;
             font-size: 16px;
@@ -60,6 +60,11 @@
             <!-- Nome do Produto -->
             <label for="nome">Nome do Produto:</label>
             <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>
+
+            <!-- Categoria do Produto -->
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+            </select>
 
             <!-- Cor do Produto -->
             <label for="cor">Cor:</label>
