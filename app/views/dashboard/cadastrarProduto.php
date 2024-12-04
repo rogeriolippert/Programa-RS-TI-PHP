@@ -1,3 +1,4 @@
+<?php // var_dump($data); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -56,7 +57,7 @@
 <body>
     <div class="container">
         <h1>Cadastro de Produtos</h1>
-        <form action="/cadastrar-produto" method="POST" enctype="multipart/form-data">
+        <form action="/Produto/addProduto" method="POST" enctype="multipart/form-data">
             <!-- Nome do Produto -->
             <label for="nome">Nome do Produto:</label>
             <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>
@@ -64,6 +65,12 @@
             <!-- Categoria do Produto -->
             <label for="categoria">Categoria:</label>
             <select id="categoria" name="categoria">
+                <?php
+                $categorias = $data['categorias'];
+                foreach ( $categorias as $categoria ) {
+                    echo '<option value="' . $categoria->id . '">' . $categoria->nome .'</option>';
+                }
+                ?>
             </select>
 
             <!-- Cor do Produto -->

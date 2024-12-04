@@ -30,8 +30,13 @@ class Dashboard extends Controller {
     public function cadastrarProduto() {
         if($this->login->estaLogado()) {
             // Caso o usuário esteja logado
+
+            // Carrega a lista de categorias do banco
+            $categorias = $this->model('Categorias');
+            $categoriasData = $categorias->getCategorias();
+
             // Exibe a tela de cadastro de produtos
-            $this->view("dashboard/cadastrarProduto");
+            $this->view("dashboard/cadastrarProduto", ['categorias' => $categoriasData]);
         } else {
             // Caso contrário
             // Exibe a tela de login

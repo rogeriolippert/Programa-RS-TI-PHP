@@ -7,6 +7,7 @@ class Database {
     private static $db;
     private static $user;
     private static $pw;
+    public $lastInsertId;
 
     private static function connect() {
         self::$host = getenv('DB_HOST');
@@ -22,9 +23,11 @@ class Database {
     }
 
     public static function query($query, $params = array()) {
-        $stmt = self::connect()->prepare($query);
+        $dbh = self::connect();
+        $stmt = $dbh->prepare($query);
         $stmt->execute($params);
         $data = $stmt->fetchAll();
+        $data = (count($data) > 0 ? $data : $dbh->lastInsertId());
         return $data;
     }
 }
