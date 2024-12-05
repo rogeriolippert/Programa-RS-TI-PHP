@@ -24,7 +24,8 @@ class Produtos {
                         VALUES (?, ?, ?, ?, ?)";
 
         try {
-            return Database::query($sqlQuery, [
+            // Uma inserção bem-sucedida no banco de dados retorna o ID do produto adicionado
+            $idProdutoAdicionado = Database::query($sqlQuery, [
                                                 $this->nome, 
                                                 $this->cor, 
                                                 $this->preco, 
@@ -33,6 +34,19 @@ class Produtos {
                                             ]); 
                                             // ?? adiciona a foto ou nada ('') se não foram 
                                             // carregadas fotos no formulário
+            
+            // Se o produto foi adicionado com sucesso ao banco de dados
+            if($idProdutoAdicionado) {
+                $sqlQuery = "INSERT INTO produtos_has_categorias(id_produtos, id_categorias) 
+                                VALUES (?, ?)";
+                
+                try {
+                    Database::query($sqlQuery, [$idProdutoAdicionado, $this->categoria]);
+                    return $idProdutoAdicionado;
+                } catch (\PDOException $e) {
+                    exit($e->getMessage());
+                }
+            }
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }
