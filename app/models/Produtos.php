@@ -9,8 +9,16 @@ class Produtos {
     public $descricao;
     public $fotos;
 
-    public function getProduto($idProduto) {
-        $sqlQuery = "SELECT * FROM produtos WHERE id = ?";
+    public function getProdutos($idProduto = null) {
+        if (isset($idProduto)) {
+            // Se o $idProduto estiver definido (ou seja, diferente de nulo),
+            // Retorna apenas UM produto específico do banco de dados.
+            $sqlQuery = "SELECT * FROM produtos WHERE id = ?";
+        } else {
+            // Se o $idProduto NÃO estiver definido (ou seja, igual a nulo),
+            // Retorna todos os produtos do banco de dados.
+            $sqlQuery = "SELECT * FROM produtos";
+        }
 
         try {
             return Database::query($sqlQuery, [$idProduto]);

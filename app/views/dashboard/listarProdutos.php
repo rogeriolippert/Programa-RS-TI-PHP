@@ -10,7 +10,6 @@
         <p>Olá, <?php echo $_SESSION['login']; ?>.</p>
         <ol>
             <li><a href="/Dashboard/cadastrarProduto">Cadastrar produto</a></li>
-            <li><a href="/Dashboard/listarProduto">Editar produtos</a></li>
         </ol>
     </body>
 </html>
