@@ -1,3 +1,4 @@
+<?php // var_dump($data); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -31,7 +32,7 @@
             margin-top: 10px;
             font-weight: bold;
         }
-        input, textarea, button {
+        input, select, textarea, button {
             margin-top: 5px;
             padding: 10px;
             font-size: 16px;
@@ -56,14 +57,21 @@
 <body>
     <div class="container">
         <h1>Cadastro de Produtos</h1>
-        <form action="/cadastrar-produto" method="POST" enctype="multipart/form-data">
-            <!-- ID do Produto -->
-            <label for="id">ID do Produto:</label>
-            <input type="text" id="id" name="id" placeholder="Ex: 001" required>
-
+        <form action="/Produto/addProduto" method="POST" enctype="multipart/form-data">
             <!-- Nome do Produto -->
             <label for="nome">Nome do Produto:</label>
             <input type="text" id="nome" name="nome" placeholder="Ex: Violão Acústico" required>
+
+            <!-- Categoria do Produto -->
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" name="categoria">
+                <?php
+                $categorias = $data['categorias'];
+                foreach ( $categorias as $categoria ) {
+                    echo '<option value="' . $categoria->id . '">' . $categoria->nome .'</option>';
+                }
+                ?>
+            </select>
 
             <!-- Cor do Produto -->
             <label for="cor">Cor:</label>

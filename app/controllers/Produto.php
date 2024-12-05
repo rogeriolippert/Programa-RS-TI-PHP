@@ -21,4 +21,28 @@ class Produto extends Controller {
         
         $this->view('produto/index', ['produto' => $produtoData]);
     }
+
+    public function addProduto() {
+        // Imprime as variáveis recebidas pelo formulário
+        // de Cadastro de Produtos na tela
+        // var_dump($_POST);
+
+        // Extrai e associa os valores do formulário a variáveis
+        // Por exemplo, $_POST['nome'] vira $nome
+        // Equivalente a: $nome = $_POST['nome'];
+        extract($_POST);
+
+        // Inicializa o modelo 'Produtos'
+        $produtoDB = $this->model('Produtos');
+
+        // Executa a função do modelo
+        $produtoDB->nome = $nome;
+        $produtoDB->categoria = (int) $categoria;
+        $produtoDB->cor = $cor;
+        $produtoDB->preco = $preco;
+        $produtoDB->descricao = $descricao;
+        $resultado = $produtoDB->addProduto();
+
+        echo $resultado;
+    }
 }
