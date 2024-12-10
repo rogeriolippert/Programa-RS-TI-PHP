@@ -58,7 +58,7 @@ class Dashboard extends Controller {
 
             // Exibe a tela de cadastro de produtos
             $this->view("dashboard/cadastrarProduto", ['categorias' => $categoriasData,
-                                                       'produto' => $produtoData]);
+                                                       'produto' => $produtoData[0]]);
         } else {
             // Caso contrário
             // Exibe a tela de login

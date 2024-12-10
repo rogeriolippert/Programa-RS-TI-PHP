@@ -13,15 +13,27 @@ class Produtos {
         if (isset($idProduto)) {
             // Se o $idProduto estiver definido (ou seja, diferente de nulo),
             // Retorna apenas UM produto específico do banco de dados.
-            $sqlQuery = "SELECT * FROM produtos WHERE id = ?";
+            $sqlQuery = "SELECT 
+                            produtos.*,       
+                            categorias.id AS id_categoria
+                        FROM 
+                            produtos
+                        INNER JOIN 
+                            produtos_has_categorias ON produtos.id = produtos_has_categorias.id_produtos
+                        INNER JOIN 
+                            categorias ON produtos_has_categorias.id_categorias = categorias.id
+                        WHERE 
+                            produtos.id = ?";
+            $arrQueryParametros = [$idProduto];
         } else {
             // Se o $idProduto NÃO estiver definido (ou seja, igual a nulo),
             // Retorna todos os produtos do banco de dados.
             $sqlQuery = "SELECT * FROM produtos";
+            $arrQueryParametros = [];
         }
 
         try {
-            return Database::query($sqlQuery, [$idProduto]);
+            return Database::query($sqlQuery, $arrQueryParametros);
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }
