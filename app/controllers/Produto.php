@@ -15,7 +15,15 @@ class Produto extends Controller {
         for ($i = 0; $i < count($produtosData); $i++) {
             // Converte a coluna "fotos" do DB de JSON para Array (vetor)
             $produtosData[$i]->fotos = json_decode($produtosData[$i]->fotos);
-            
+            if (!isset($produtosData[$i]->fotos[0])) {
+                // Se o produto não possui nenhuma foto carregada
+                // Carrega a foto com a mensagem "sem-foto"
+                // Foto 0 é a foto principal do produto
+                $produtosData[$i]->fotos[0] = '/assets/produtos/sem-foto.jpg';
+                // Foto 1 é a foto alternada ao passar o mouse sob a foto principal do produto
+                $produtosData[$i]->fotos[1] = '/assets/produtos/sem-foto.jpg';
+            }
+
             $fmt = new NumberFormatter('pt_BR', NumberFormatter::CURRENCY);
             // Calcula o valor de desconto à vista (3%)
             $produtosData[$i]->preco_desconto = $fmt->formatCurrency($produtosData[$i]->preco * (1-0.03), 'BRL');
