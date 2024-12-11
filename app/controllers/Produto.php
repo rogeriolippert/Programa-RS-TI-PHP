@@ -3,7 +3,7 @@ class Produto extends Controller {
 
     // Index da página (localhost/produto(/index))
     public function index($idProduto) {
-        $this->view('produto/index', ['produto' => $this->listaProdutos($idProduto)]);
+        $this->view('produto/index', ['produto' => $this->listaProdutos($idProduto)[0]]);
     }
 
     public function listaProdutos($idProduto = null) {

@@ -103,21 +103,24 @@
         <div id="customSliderExampleIndicators" class="slider slide" data-ride="slider">
             <div class="slider-inner">
                 <?php
-                echo '<div class="custom-slider-item slider-item">
-                    <a href="link-para-produto-1.html" class="slider-link">
-                    <img src="/assets/home/carousel de produtos/banner-1/banner-1.jpg" alt="Casaco Jeans Com Cinto">
-                    <img class="hover-image" src="/assets/home/carousel de produtos/banner-1/banner-2.jpg" alt="Casaco Jeans Com Cinto">
-                    <div class="custom-slider-caption slider-caption d-none d-md-block product-details">
-                        <h4>Casaco Jeans Com Cinto</h4>
-                        <div class="product-sizes">
-                            <span class="size-square">PP</span>
-                            <span class="size-square">P</span>
-                            <span class="size-square">M</span>
-                            <span class="size-square">G</span>
+                $produtos = $data['produtos'];
+                foreach($produtos as $produto) {
+                    echo '<div class="custom-slider-item slider-item">
+                        <a href="/Produto/' . $produto->id . '" class="slider-link">
+                        <img src="' . $produto->fotos[0] . '" alt="' . $produto->nome . '">
+                        <img class="hover-image" src="' . $produto->fotos[1] . '" alt="' . $produto->nome . '">
+                        <div class="custom-slider-caption slider-caption d-none d-md-block product-details">
+                            <h4>' . $produto->nome . '</h4>
+                            <div class="product-sizes">
+                                <span class="size-square">PP</span>
+                                <span class="size-square">P</span>
+                                <span class="size-square">M</span>
+                                <span class="size-square">G</span>
+                            </div>
+                            <p class="product-price">' . $produto->preco . '</p>
                         </div>
-                        <p class="product-price">R$ 1.223,04</p>
-                    </div>
-                </div>';
+                    </div>';
+                }
                 ?>
 
 
